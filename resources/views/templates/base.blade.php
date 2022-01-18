@@ -17,7 +17,7 @@
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="{{route('home')}}" class="nav-link px-2 @if ($current_view == 'home') text-secondary @else text-white @endif">Galeria</a></li>
-          <li><a href="{{route('upload')}}" class="nav-link px-2 @if ($current_view == 'midia-create') text-secondary @else text-white @endif">Inserir Imagens</a></li>
+          <li><a href="{{route('upload')}}" class="nav-link px-2 @if ($current_view == 'produtos-create') text-secondary @else text-white @endif">Inserir Produto</a></li>
         </ul>
       </div>
     </div>

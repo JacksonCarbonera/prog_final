@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\FotoController;
+use App\Http\Controllers\ProdutosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,15 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', [FotoController::class, 'index'])->name('home');
+Route::get('/', [ProdutosController::class, 'index'])->name('home');
 
-Route::prefix('/galeria')->group(function(){
-    Route::view('/upload', 'midia.create')->name('upload');
-    Route::post('/upload', [ FotoController::class, 'create' ]);
+Route::prefix('/produtos')->group(function(){
+    Route::view('/upload', 'produtos.create')->name('upload');
+    Route::post('/upload', [ ProdutosController::class, 'create' ]);
     
     
-    Route::get('/foto/{id}', [ FotoController::class, 'get' ])->name('midia');
+    Route::get('/foto/{id}', [ ProdutosController::class, 'getProductPhoto' ])->name('midia');
     
-    Route::get('/{id}', [FotoController::class, 'item' ])->name('item');
+    Route::get('/{id}', [ProdutosController::class, 'item' ])->name('item');
 });
 

@@ -1,6 +1,6 @@
 @extends('templates.base')
 @section('title', 'Home')
-@section('h1', 'Galeria')
+@section('h1', 'Produtos')
 
 @section('content')
 
@@ -9,7 +9,7 @@
 
         .wrapper{
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
             gap: 1em
         }
         .image-item{
@@ -40,11 +40,12 @@
 
 
 <div class='wrapper'>
-    @foreach ($images as $image)
+    @foreach ($produtos as $produto)
         <div class='image-item'>
-            <a href="{{route('item', ['id' => $image->id])}}">
-                <img src="{{$image->url}}" alt=""/>
-                <p>{{$image->title}}</p>
+            <a href="{{route('item', ['id' => $produto->id])}}">
+                <img src="{{$produto->photo_url}}" alt=""/>
+                <p>{{$produto->name}}</p>
+                <p>{{$produto->price}}</p>
             </a>
         </div>
 

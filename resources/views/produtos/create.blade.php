@@ -1,6 +1,6 @@
 @extends('templates.base')
-@section('title', 'Upload')
-@section('h1', 'Upload de imagens')
+@section('title', 'Produto')
+@section('h1', 'Incluir produto')
 
 @section('content')
 
@@ -66,36 +66,43 @@
 @endpush
 
 
-{{ Form::open(['route' => 'upload', 'files' => true, 'method' => 'POST']) }}
+<form action="{{route('upload')}}" method='POST' enctype="multipart/form-data" >
+        @csrf
 
-    <label for="title">Titulo</label>
-    <input type="text" name='title' id='title' value="{{old('title')}}">
-    @error('title')
+
+    <label for="name">Nome do produto</label>
+    <input type="text" name='name' id='name' value="{{old('name')}}">
+    @error('name')
         <p class='error'>{{$message}}</p>
     @enderror
     <br />
-
+    
     <label for="description">Descrição</label>
     <input type="text" name='description' id='description' value="{{old('description')}}">
     @error('description')
-        <p class='error'>{{$message}}</p>
+    <p class='error'>{{$message}}</p>
     @enderror
+    <br />
 
+    <label for="price">Preco</label>
+    <input type="text" name='price' id='price' value="{{old('price')}}">
+    @error('price')
+    <p class='error'>{{$message}}</p>
+    @enderror
+    
     <br />
     
     <label for="image" class='image-preview'>
         <i class="bi bi-camera"></i>
     </label>
     @error('image')
-        <p class='error'>{{$message}}</p>
+    <p class='error'>{{$message}}</p>
     @enderror
     <input type="file" name='image' id='image'>
-
+    
     <br />
-    {{ Form::submit('Upload') }}
-
-{{ Form::close() }}
-
+    
+    <input type='submit'/>
 
 </form>
 
